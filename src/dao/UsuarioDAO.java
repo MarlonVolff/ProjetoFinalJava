@@ -31,4 +31,14 @@ public class UsuarioDAO {
     public void delete(int id) {
         usuarios.removeIf(m -> m.getId() == id);
     }
+
+    @Override
+    public String toString(){
+        String str = "";
+        for(Usuario usuario : usuarios){
+            str += usuario.toString();
+            str += "\n";
+        }
+        return str;
+    }
 }
