@@ -1,13 +1,13 @@
 package models;
 
-
-public class Usuarios {
+public class Usuario {
     private int id;
     private String name;
     private String email;
 
-
-    public Usuarios(int id, String name, String email) {
+    public Usuario() {
+    }
+    public Usuario(int id, String name, String email) {
         this.id = id;
         this.name = name;
         this.email = email;

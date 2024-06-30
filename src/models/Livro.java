@@ -1,23 +1,23 @@
 package models;
 
-public class Livros {
+public class Livro {
     private int id;
     private String titulo;
     private String autor;
     private String isbn;
     
-    public Livros() {
+    public Livro() {
     }
-    public Livros(int id) {
+    public Livro(int id) {
         this.id = id;
     }
-    public Livros(int id, String titulo, String autor, String isbn) {
+    public Livro(int id, String titulo, String autor, String isbn) {
         this.id = id;
         this.titulo = titulo;
         this.autor = autor;
         this.isbn = isbn;
     }
-    
+
     public int getId() {
         return id;
     }
