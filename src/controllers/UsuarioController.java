@@ -31,4 +31,9 @@ public class UsuarioController {
     public void deleteUsuario(int id) {
         usuarioDAO.delete(id);
     }
+
+    @Override
+    public String toString(){
+        return usuarioDAO.toString();
+    }
 }
