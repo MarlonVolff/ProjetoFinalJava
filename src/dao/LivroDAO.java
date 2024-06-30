@@ -10,6 +10,10 @@ public class LivroDAO {
         livros.add(sLivro);
     }
 
+    public List<Livro> findAll(){
+        return new ArrayList<>(livros);
+    }
+
     public Livro findById(int id){
         for (Livro livro : livros) {
             if (livro.getId() == id) return livro;
