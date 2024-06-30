@@ -32,4 +32,9 @@ public class LivroController {
     public Livro findByISBN(String ISBN){
         return livroDAO.findByISBN(ISBN);
     }
+
+    @Override
+    public String toString(){
+        return livroDAO.toString();
+    }
 }

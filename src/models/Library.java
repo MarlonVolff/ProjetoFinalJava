@@ -10,7 +10,6 @@ public class Library {
     private Date saleDate;
     private double totalAmount;
 
-    // Construtores
     public Library() {}
 
     public Library(int id, Usuario customer, List<Livro> books, Date saleDate, double totalAmount) {

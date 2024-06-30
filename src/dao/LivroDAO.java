@@ -43,4 +43,14 @@ public class LivroDAO {
         }
         return null;
     }
+
+    @Override
+    public String toString(){
+        String str = "";
+        for(Livro livro : livros){
+            str += livro.toString();
+            str += "\n";
+        }
+        return str;
+    }
 }
