@@ -1,13 +1,18 @@
+package views;
+
 import java.util.Scanner;
+import java.time.LocalDate;
+import controllers.*;
+import models.*;
 
 public class LivrariaView {
-    private BookController bookController;
+    private LivroController bookController;
     private UsuarioController usuarioController;
     private LoanController loanController;
     private Scanner scanner;
 
     public LivrariaView() {
-        this.bookController = new BookController();
+        this.bookController = new LivroController();
         this.usuarioController = new UsuarioController();
         this.loanController = new LoanController();
         this.scanner = new Scanner(System.in);
@@ -51,13 +56,13 @@ public class LivrariaView {
         System.out.print("ISBN: ");
         String isbn = scanner.next();
 
-        Book book = new Book();
+        Livro book = new Livro();
         book.setId(id);
-        book.setTitle(title);
-        book.setAuthor(author);
+        book.setTitulo(title);
+        book.setAutor(author);
         book.setIsbn(isbn);
 
-        bookController.addBook(book);
+        bookController.addLivro(book);
         System.out.println("Livro adicionado com sucesso!");
     }
 
@@ -88,7 +93,7 @@ public class LivrariaView {
         System.out.print("ID do Usuário: ");
         int usuarioId = scanner.nextInt();
 
-        Book book = bookController.getBookById(bookId);
+        Livro book = bookController.findById(bookId);
         Usuario usuario = usuarioController.getUsuarioById(usuarioId);
         Loan loan = new Loan();
         loan.setId(id);
@@ -96,7 +101,7 @@ public class LivrariaView {
         loan.setMember(usuario);
         loan.setLoanDate(LocalDate.now());
 
-        loanController.createLoan(loan);
+        loanController.addLoan(loan);
         System.out.println("Empréstimo criado com sucesso!");
     }
 }

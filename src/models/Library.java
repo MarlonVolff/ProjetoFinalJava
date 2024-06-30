@@ -1,17 +1,19 @@
+package models;
+
 import java.util.Date;
 import java.util.List;
 
 public class Library {
     private int id;
-    private Customer customer;
-    private List<Book> books;
+    private Usuario customer;
+    private List<Livro> books;
     private Date saleDate;
     private double totalAmount;
 
     // Construtores
-    public Sale() {}
+    public Library() {}
 
-    public Sale(int id, Customer customer, List<Book> books, Date saleDate, double totalAmount) {
+    public Library(int id, Usuario customer, List<Livro> books, Date saleDate, double totalAmount) {
         this.id = id;
         this.customer = customer;
         this.books = books;
@@ -27,19 +29,19 @@ public class Library {
         this.id = id;
     }
 
-    public Customer getCustomer() {
+    public Usuario getCustomer() {
         return customer;
     }
 
-    public void setCustomer(Customer customer) {
+    public void setCustomer(Usuario customer) {
         this.customer = customer;
     }
 
-    public List<Book> getBooks() {
+    public List<Livro> getBooks() {
         return books;
     }
 
-    public void setBooks(List<Book> books) {
+    public void setBooks(List<Livro> books) {
         this.books = books;
     }
 

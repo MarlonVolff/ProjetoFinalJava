@@ -1,8 +1,11 @@
+package dao;
+
 import java.util.ArrayList;
 import java.util.List;
+import models.Loan;
 
 public class LoanDAO {
-    private List<Loan> loans;
+    public List<Loan> loans;
 
     public LoanDAO() {
         this.loans = new ArrayList<>();

@@ -1,11 +1,15 @@
 package controllers;
 
+import dao.UsuarioDAO;
+import models.Usuario;
+import java.util.List;
+
 public class UsuarioController {
 
     private UsuarioDAO usuarioDAO;
 
-    public Usuario Controller() {
-        this.usuarioDAO = new Usuario DAO();
+    public UsuarioController() {
+        this.usuarioDAO = new UsuarioDAO();
     }
 
     public void addUsuario(Usuario usuario) {

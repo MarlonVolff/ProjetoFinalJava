@@ -1,12 +1,11 @@
 package models;
-import models.*;
 
 import java.time.LocalDate;
 
 public class Loan {
     private int id;
-    private Book book;
-    private Member member;
+    private Livro book;
+    private Usuario member;
     private LocalDate loanDate;
     private LocalDate returnDate;
 
@@ -18,19 +17,19 @@ public class Loan {
         this.id = id;
     }
 
-    public Book getBook() {
+    public Livro getBook() {
         return book;
     }
 
-    public void setBook(Book book) {
+    public void setBook(Livro book) {
         this.book = book;
     }
 
-    public Member getMember() {
+    public Usuario getMember() {
         return member;
     }
 
-    public void setMember(Member member) {
+    public void setMember(Usuario member) {
         this.member = member;
     }
 
