@@ -1,35 +1,32 @@
 package controllers;
 
+import java.util.List;
 import dao.UsuarioDAO;
 import models.Usuario;
-import java.util.List;
 
 public class UsuarioController {
-
     private UsuarioDAO usuarioDAO;
 
     public UsuarioController() {
         this.usuarioDAO = new UsuarioDAO();
     }
 
-    public void addUsuario(Usuario usuario) {
-        usuarioDAO.save(usuario);
+    public void addUsuario(Usuario usuario){
+        usuarioDAO.addUsuario(usuario);
     }
-
-    public Usuario getUsuarioById(int id) {
+    public List<Usuario> findAll(){
+        return usuarioDAO.findAll();
+    }
+    public Usuario findById(int id){
         return usuarioDAO.findById(id);
     }
 
-    public List<Usuario> getAllUsuarios() {
-        return usuarioDAO.findAll();
+    public Usuario findByName(String name){
+        return usuarioDAO.findByName(name);
     }
 
-    public void updateUsuario(Usuario usuario) {
-        usuarioDAO.update(usuario);
-    }
-
-    public void deleteUsuario(int id) {
-        usuarioDAO.delete(id);
+    public List<Usuario> findByEmail(String email){
+        return usuarioDAO.findByEmail(email);
     }
 
     @Override
