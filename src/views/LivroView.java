@@ -22,7 +22,7 @@ public class LivroView {
 
     public void displayLivroMenu() {
         while (true) {
-            System.out.println("Menu de Livros:");
+            System.out.println("\n\nMenu de Livros:");
             System.out.println("1. Adicionar Livro");
             System.out.println("2. Listar Todos os Livros");
             System.out.println("3. Procurar Livro por ID");
@@ -71,7 +71,7 @@ public class LivroView {
 
     public void displayLivro(Livro livro) {
         if (livro != null) {
-            System.out.println("ID: " + livro.getId());
+            System.out.println("\n\nID: " + livro.getId());
             System.out.println("Título: " + livro.getTitulo());
             System.out.println("Author: " + livro.getAutor());
             System.out.println("ISBN: " + livro.getIsbn());
@@ -92,7 +92,7 @@ public class LivroView {
     }
 
     public Livro getLivroDetails() {
-        System.out.println("Insira os detalhes do Livro:");
+        System.out.println("\n\nInsira os detalhes do Livro:");
         System.out.print("ID: ");
         int id = Integer.parseInt(scanner.nextLine());
         System.out.print("Título: ");
@@ -144,10 +144,15 @@ public class LivroView {
 
     public static void writeFile(LivroController livroController) throws IOException {
 
-        FileWriter resumo = new FileWriter("C:\\Users\\Lucas\\Desktop\\Projeto\\ListaLivros.csv");
+        FileWriter resumo = new FileWriter("../ListaLivros.csv");
 
-        resumo.write(livroController.toString());
+        List<Livro> livros = livroController.findAll();
+        for (Livro livro : livros) {
+            resumo.write(livro.toString() + "\n");
+        }
 
         resumo.close();
+
+        System.out.println("Arquivo CSV gerado com sucesso!");
     }
 }
