@@ -6,7 +6,6 @@ public class App {
 
         LivroController controller = new LivroController();
         LivroView view = new LivroView(controller);
-
         view.displayLivroMenu();
     }
 }

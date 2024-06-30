@@ -22,6 +22,9 @@ public class LivroView {
 
     public void displayLivroMenu() {
         while (true) {
+            Livro livro = new Livro();
+            List<Livro> livros = new ArrayList<>();
+
             System.out.println("\n\nMenu de Livros:");
             System.out.println("1. Adicionar Livro");
             System.out.println("2. Listar Todos os Livros");
@@ -39,19 +42,24 @@ public class LivroView {
                     livroController.addLivro(getLivroDetails());
                     break;
                 case 2:
-                    livroController.findAll();
+                    livros= livroController.findAll();
+                    displayLivros(livros);
                     break;
                 case 3:
-                    livroController.findById(getLivroId());
+                    livro = livroController.findById(getLivroId());
+                    displayLivro(livro);
                     break;
                 case 4:
-                    livroController.findByTitle(getLivroTitle());
+                    livro = livroController.findByTitle(getLivroTitle());
+                    displayLivro(livro);
                     break;
                 case 5:
-                    livroController.findByAuthor(getLivroAuthor());
+                    livros = livroController.findByAuthor(getLivroAuthor());
+                    displayLivros(livros);
                     break;
                 case 6:
-                    livroController.findByISBN(getLivroISBN());
+                    livro = livroController.findByISBN(getLivroISBN());
+                    displayLivro(livro);
                     break;
                 case 7:
                     try {
@@ -71,10 +79,7 @@ public class LivroView {
 
     public void displayLivro(Livro livro) {
         if (livro != null) {
-            System.out.println("\n\nID: " + livro.getId());
-            System.out.println("Título: " + livro.getTitulo());
-            System.out.println("Author: " + livro.getAutor());
-            System.out.println("ISBN: " + livro.getIsbn());
+            System.out.println(livro.toString());
         } else {
             System.out.println("Livro não encontrado.");
         }
