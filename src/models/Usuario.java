@@ -37,8 +37,8 @@ public class Usuario {
         this.email = email;
     }
 
-    @Override
+   @Override
     public String toString() {
-        return "Usuarios [id=" + id + ", name=" + name + ", email=" + email + "]";
+        return id + ";" + name + ";" + email + ";";
     }
 }
