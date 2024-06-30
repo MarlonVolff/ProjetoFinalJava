@@ -1,3 +1,5 @@
+package controllers;
+
 public class UsuarioController {
 
     private UsuarioDAO usuarioDAO;

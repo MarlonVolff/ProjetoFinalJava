@@ -1,23 +1,27 @@
 package models;
 
+<<<<<<< HEAD:src/models/Livro.java
+public class Livro {
+=======
 public class Livros {
+>>>>>>> 4a53b838f5e8260ad3362a4ad55b732413a43f02:src/models/Livros.java
     private int id;
     private String titulo;
     private String autor;
     private String isbn;
     
-    public Livros() {
+    public Livro() {
     }
-    public Livros(int id) {
+    public Livro(int id) {
         this.id = id;
     }
-    public Livros(int id, String titulo, String autor, String isbn) {
+    public Livro(int id, String titulo, String autor, String isbn) {
         this.id = id;
         this.titulo = titulo;
         this.autor = autor;
         this.isbn = isbn;
     }
-    
+
     public int getId() {
         return id;
     }
