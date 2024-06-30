@@ -6,33 +6,37 @@ import controllers.*;
 import models.*;
 
 public class LivrariaView {
-    private LivroController bookController;
+    private LivroController livroController;
+    public LivroView livroView;
     private UsuarioController usuarioController;
+    public UsuarioView usuarioView;
     private LoanController loanController;
     private Scanner scanner;
 
     public LivrariaView() {
-        this.bookController = new LivroController();
+        this.livroController = new LivroController();
+        this.livroView = new LivroView(livroController);
         this.usuarioController = new UsuarioController();
+        this.usuarioView = new UsuarioView();
         this.loanController = new LoanController();
         this.scanner = new Scanner(System.in);
     }
 
     public void displayMainMenu() {
         System.out.println("Bem-vindo ao Sistema de Gerenciamento de Biblioteca");
-        System.out.println("1. Adicionar Livro");
-        System.out.println("2. Adicionar Usuário");
-        System.out.println("3. Criar Empréstimo");
+        System.out.println("1. Livro Menu");
+        System.out.println("2. Usuário Menu");
+        System.out.println("3. Loan Menu");
         System.out.println("4. Sair");
 
         int choice = scanner.nextInt();
 
         switch (choice) {
             case 1:
-                addBook();
+                livroView.displayLivroMenu();
                 break;
             case 2:
-                addUsuario();
+                usuarioView.exibirMenu();
                 break;
             case 3:
                 createLoan();
@@ -45,45 +49,6 @@ public class LivrariaView {
         }
     }
 
-    private void addBook() {
-        System.out.println("Adicionar novo livro");
-        System.out.print("ID: ");
-        int id = scanner.nextInt();
-        System.out.print("Título: ");
-        String title = scanner.next();
-        System.out.print("Autor: ");
-        String author = scanner.next();
-        System.out.print("ISBN: ");
-        String isbn = scanner.next();
-
-        Livro book = new Livro();
-        book.setId(id);
-        book.setTitulo(title);
-        book.setAutor(author);
-        book.setIsbn(isbn);
-
-        bookController.addLivro(book);
-        System.out.println("Livro adicionado com sucesso!");
-    }
-
-    private void addUsuario() {
-        System.out.println("Adicionar novo usuário");
-        System.out.print("ID: ");
-        int id = scanner.nextInt();
-        System.out.print("Nome: ");
-        String name = scanner.next();
-        System.out.print("Email: ");
-        String email = scanner.next();
-
-        Usuario usuario = new Usuario();
-        usuario.setId(id);
-        usuario.setName(name);
-        usuario.setEmail(email);
-
-        usuarioController.addUsuario(usuario);
-        System.out.println("Usuário adicionado com sucesso!");
-    }
-
     private void createLoan() {
         System.out.println("Criar novo empréstimo");
         System.out.print("ID: ");
@@ -93,8 +58,8 @@ public class LivrariaView {
         System.out.print("ID do Usuário: ");
         int usuarioId = scanner.nextInt();
 
-        Livro book = bookController.findById(bookId);
-        Usuario usuario = usuarioController.getUsuarioById(usuarioId);
+        Livro book = livroController.findById(bookId);
+        Usuario usuario = usuarioController.findById(usuarioId);
         Loan loan = new Loan();
         loan.setId(id);
         loan.setBook(book);

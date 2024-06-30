@@ -24,7 +24,7 @@ public class UsuarioDAO {
     public void update(Usuario usuario) {
         Usuario existingUsuario = findById(usuario.getId());
         if (existingUsuario != null) {
-            existingUsuario.setNome(usuario.getNome());
+            existingUsuario.setName(usuario.getName());
             existingUsuario.setEmail(usuario.getEmail());
         }
     }
@@ -39,7 +39,7 @@ public class UsuarioDAO {
     }
 
     public List<Usuario> findByNome(String nome) {
-        return usuarios.stream().filter(usuario -> usuario.getNome().equalsIgnoreCase(nome))
+        return usuarios.stream().filter(usuario -> usuario.getName().equalsIgnoreCase(nome))
         .collect(Collectors.toList());
     }
 

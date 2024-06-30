@@ -1,7 +1,5 @@
 package views;
 
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -130,33 +128,16 @@ public class LivroView {
         return scanner.nextLine();
     }
 
-    public static List<String> readFile(String name) throws FileNotFoundException {
-
-        File file = new File("C:\\Users\\Lucas\\Desktop\\Projeto\\" + name + ".csv");
-        Scanner read = new Scanner(file);
-
-        List<String> dados = new ArrayList<>();
-
-        while (read.hasNext()) {
-            String dado = read.nextLine();
-            dados.add(dado);
-        }
-
-        read.close();
-
-        return dados;
-    }
-
     public static void writeFile(LivroController livroController) throws IOException {
 
-        FileWriter resumo = new FileWriter("../ListaLivros.csv");
+        FileWriter file = new FileWriter("../ListaLivros.csv");
 
         List<Livro> livros = livroController.findAll();
         for (Livro livro : livros) {
-            resumo.write(livro.toString() + "\n");
+            file.write(livro.toString() + "\n");
         }
 
-        resumo.close();
+        file.close();
 
         System.out.println("Arquivo CSV gerado com sucesso!");
     }

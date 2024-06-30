@@ -12,7 +12,10 @@ public class UsuarioController {
     }
 
     public void addUsuario(Usuario usuario){
-        usuarioDAO.addUsuario(usuario);
+        usuarioDAO.save(usuario);
+    }
+    public void removeUsuario(int id){
+        usuarioDAO.delete(id);
     }
     public List<Usuario> findAll(){
         return usuarioDAO.findAll();
@@ -21,8 +24,8 @@ public class UsuarioController {
         return usuarioDAO.findById(id);
     }
 
-    public Usuario findByName(String name){
-        return usuarioDAO.findByName(name);
+    public List<Usuario> findByName(String name){
+        return usuarioDAO.findByNome(name);
     }
 
     public List<Usuario> findByEmail(String email){
