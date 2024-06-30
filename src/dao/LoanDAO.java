@@ -1,5 +1,7 @@
+package dao;
 import java.util.ArrayList;
 import java.util.List;
+import models.Loan;
 
 public class LoanDAO {
     private List<Loan> loans;
@@ -40,5 +42,13 @@ public class LoanDAO {
 
     public void delete(int id) {
         loans.removeIf(loan -> loan.getId() == id);
+    }
+    public String toString(){
+        String str = "";
+        for(Loan loan : loans){
+            str += loan.toString();
+            str += "\n";
+        }
+        return str;
     }
 }
