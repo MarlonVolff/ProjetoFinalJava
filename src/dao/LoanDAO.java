@@ -1,5 +1,8 @@
 package dao;
+<<<<<<< HEAD
+=======
 
+>>>>>>> 0ee168ab8a48b2491c3ef5dfc8ab67a71252e53a
 import java.util.ArrayList;
 import java.util.List;
 import models.Loan;
@@ -43,5 +46,13 @@ public class LoanDAO {
 
     public void delete(int id) {
         loans.removeIf(loan -> loan.getId() == id);
+    }
+    public String toString(){
+        String str = "";
+        for(Loan loan : loans){
+            str += loan.toString();
+            str += "\n";
+        }
+        return str;
     }
 }

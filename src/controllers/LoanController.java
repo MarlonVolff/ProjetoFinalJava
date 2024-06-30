@@ -1,8 +1,12 @@
 package controllers;
 
+import java.lang.reflect.Member;
 import java.time.LocalDate;
 import dao.*;
 import models.*;
+
+import dao.LoanDAO;
+import models.Loan;
 
 public class LoanController {
     private LoanDAO loanDAO;
@@ -60,5 +64,10 @@ public class LoanController {
 
     private int generateLoanId() {
         return loanDAO.findAll().size() + 1;
+
+    }
+    @Override
+    public String toString(){
+        return loanDAO.toString();
     }
 }

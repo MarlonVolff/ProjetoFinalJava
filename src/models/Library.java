@@ -62,6 +62,6 @@ public class Library {
 
     @Override
     public String toString() {
-        return "Sale [id=" + id + ", customer=" + customer.getName() + ", books=" + books.size() + ", saleDate=" + saleDate + ", totalAmount=" + totalAmount + "]";
+        return id + ";" + customer.getName() + ";" + books.size() + ";" + saleDate + ";" + totalAmount;
     }
 }
