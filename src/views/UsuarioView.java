@@ -26,7 +26,7 @@ public class UsuarioMenu {
             System.out.print("Escolha uma opção: ");
 
             int opcao = scanner.nextInt();
-            scanner.nextLine();  // Consumir a quebra de linha após o nextInt()
+            scanner.nextLine(); 
 
             switch (opcao) {
                 case 1:
