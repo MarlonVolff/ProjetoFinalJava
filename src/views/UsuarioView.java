@@ -1,7 +1,11 @@
+package views;
+
+import controllers;
+import models;
 import java.io.*;
 import java.util.*;
 
-public class UsuarioMenu {
+public class UsuarioView {
 
     private UsuarioController usuarioController;
     private Scanner scanner;
