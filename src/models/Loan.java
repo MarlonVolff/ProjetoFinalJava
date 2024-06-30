@@ -1,3 +1,6 @@
+package models;
+import models.*;
+
 import java.time.LocalDate;
 
 public class Loan {

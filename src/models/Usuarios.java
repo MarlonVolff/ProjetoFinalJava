@@ -1,3 +1,6 @@
+package models;
+
+
 public class Usuarios {
     private int id;
     private String name;
@@ -36,6 +39,6 @@ public class Usuarios {
 
     @Override
     public String toString() {
-        return "Usuarios [id=" + id + ", name=" + name + ", email=" + email "]";
+        return "Usuarios [id=" + id + ", name=" + name + ", email=" + email + "]";
     }
 }

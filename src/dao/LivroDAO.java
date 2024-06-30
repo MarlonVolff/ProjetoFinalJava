@@ -1,5 +1,8 @@
 package dao;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 4a53b838f5e8260ad3362a4ad55b732413a43f02
 import java.util.ArrayList;
 import java.util.List;
 import models.Livro;
