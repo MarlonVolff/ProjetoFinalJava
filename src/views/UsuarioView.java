@@ -50,9 +50,10 @@ public class UsuarioView {
                 case 5:
                     removerUsuario();
                     break;
-                case 8:
-                    System.out.println("Saindo do menu de usuários...");
-                    return;
+                case 6:
+                    LivrariaView livrariaView = new LivrariaView();
+                    livrariaView.displayMainMenu();
+                    
                 default:
                     System.out.println("Opção inválida. Por favor, escolha uma opção válida.");
             }

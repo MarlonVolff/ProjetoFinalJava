@@ -1,7 +1,11 @@
 package views;
 
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.List;
 import java.util.Scanner;
-import controllers.*;
+import controllers.LoanController;
+import models.Loan;
 
 public class LoanView {
     private LoanController loanController;
@@ -18,7 +22,8 @@ public class LoanView {
             System.out.println("1. Criar Locação");
             System.out.println("2. Retornar Livro");
             System.out.println("3. Visualizar Detalhes da Locação");
-            System.out.println("4. Voltar ao Menu Principal");
+            System.out.println("4. Salvar CSV");
+            System.out.println("5. Voltar ao Menu Principal");
             System.out.print("Selecione uma opção: ");
             int option = scanner.nextInt();
             scanner.nextLine();
@@ -34,8 +39,15 @@ public class LoanView {
                     viewLoanDetails();
                     break;
                 case 4:
-                    System.out.println("Saindo..........");
-                    return;
+                    try {
+                        writeFile(loanController);
+                    } catch (IOException e) {
+                        System.out.println("Erro ao salvar o arquivo CSV: " + e.getMessage());
+                    }
+                    break;
+                case 5:
+                    LivrariaView livrariaView = new LivrariaView();
+                    livrariaView.displayMainMenu();
                 default:
                     System.out.println("Opção inválida. Por favor, tente novamente.");
             }
@@ -63,5 +75,18 @@ public class LoanView {
         int loanId = scanner.nextInt();
 
         loanController.viewLoanDetails(loanId);
+    }
+
+    public static void writeFile(LoanController loanController) throws IOException {
+        FileWriter file = new FileWriter("ListaLoan.csv");
+
+        List<Loan> loans = loanController.findAll();
+        for (Loan loan : loans) {
+            file.write(loan.toString() + "\n");
+        }
+
+        file.close();
+
+        System.out.println("Arquivo CSV gerado com sucesso!");
     }
 }

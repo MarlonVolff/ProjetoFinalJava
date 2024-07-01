@@ -19,7 +19,6 @@ public class LivroView {
     }
 
     public void displayLivroMenu() {
-        while (true) {
             Livro livro = new Livro();
             List<Livro> livros = new ArrayList<>();
 
@@ -67,12 +66,14 @@ public class LivroView {
                     }
                     break;
                 case 8:
-                    System.out.println("Saindo...");
-                    return;
+                    LivrariaView livrariaView = new LivrariaView();
+                    livrariaView.displayMainMenu();
+                    // System.out.println("Saindo...");
+                    // return;
                 default:
                     System.out.println("Opção inválida. Tente novamente.");
             }
-        }
+        
     }
 
     public void displayLivro(Livro livro) {

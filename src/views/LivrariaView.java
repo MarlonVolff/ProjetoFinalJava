@@ -33,8 +33,11 @@ public class LivrariaView {
 
         switch (choice) {
             case 1:
+            while (true) {
                 livroView.displayLivroMenu();
                 break;
+            }
+                
             case 2:
                 usuarioView.exibirMenu();
                 break;

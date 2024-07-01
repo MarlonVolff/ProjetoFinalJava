@@ -1,30 +1,31 @@
 package controllers;
 
 import java.time.LocalDate;
+import java.util.List;
+
 import dao.*;
 import models.*;
 
-import dao.LoanDAO;
-import models.Loan;
-
 public class LoanController {
     private LoanDAO loanDAO;
-    private LivroDAO bookDAO;
-    private UsuarioDAO memberDAO;
+    private LivroDAO livroDAO;
+    private UsuarioDAO usuarioDAO;
 
     public LoanController() {
         this.loanDAO = new LoanDAO();
-        this.bookDAO = new LivroDAO();
-        this.memberDAO = new UsuarioDAO();
+        this.livroDAO = new LivroDAO();
+        this.usuarioDAO = new UsuarioDAO();
     }
 
     public void addLoan(Loan loan){
         loanDAO.save(loan);
     }
-
+    public List<Loan> findAll(){
+        return loanDAO.findAll();
+    }
     public void createLoan(int bookId, int memberId) {
-        Livro book = bookDAO.findById(bookId);
-        Usuario member = memberDAO.findById(memberId);
+        Livro book = livroDAO.findById(bookId);
+        Usuario member = usuarioDAO.findById(memberId);
 
         if (book != null && member != null) {
             Loan loan = new Loan();
