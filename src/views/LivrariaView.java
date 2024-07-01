@@ -9,7 +9,7 @@ public class LivrariaView {
     private UsuarioController usuarioController;
     public UsuarioView usuarioView;
     private LoanController loanController;
-    // public LoanView loanView;
+    public LoanView loanView;
     private Scanner scanner;
 
     public LivrariaView() {
@@ -18,7 +18,7 @@ public class LivrariaView {
         this.usuarioController = new UsuarioController();
         this.usuarioView = new UsuarioView(usuarioController);
         this.loanController = new LoanController();
-        //this.loanview = new LoanView();
+        this.loanView = new LoanView();
         this.scanner = new Scanner(System.in);
     }
 
@@ -39,7 +39,7 @@ public class LivrariaView {
                 usuarioView.exibirMenu();
                 break;
             case 3:
-                //loanView.displayLoanMenu();
+                loanView.displayLoanMenu();
                 break;
             case 4:
                 System.out.println("Saindo...");
