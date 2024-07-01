@@ -34,8 +34,7 @@ public class LoanView {
                     viewLoanDetails();
                     break;
                 case 4:
-                    // LivrariaView.displayMainMenu();
-                    // break;
+                    System.out.println("Saindo..........");
                     return;
                 default:
                     System.out.println("Opção inválida. Por favor, tente novamente.");
