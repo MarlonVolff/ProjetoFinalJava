@@ -10,8 +10,8 @@ public class UsuarioView {
     private UsuarioController usuarioController;
     private Scanner scanner;
 
-    public UsuarioView() {
-        this.usuarioController = new UsuarioController(); 
+    public UsuarioView(UsuarioController usuarioController) {
+        this.usuarioController = usuarioController; 
         this.scanner = new Scanner(System.in);
     }
 
@@ -22,8 +22,8 @@ public class UsuarioView {
             System.out.println("1. Adicionar Usuário");
             System.out.println("2. Buscar Usuário por ID");
             System.out.println("3. Listar Todos os Usuários");
-            System.out.println("4. Remover Usuário");
-            System.out.println("5. Exportar Usuários para CSV");
+            System.out.println("4. Exportar Usuários para CSV");
+            System.out.println("5. Remover Usuário");
             System.out.println("6. Sair");
             System.out.print("Escolha uma opção: ");
 
@@ -40,16 +40,16 @@ public class UsuarioView {
                 case 3:
                     listarTodosUsuarios();
                     break;
+                case 4:
+                        try {
+                            writeFile(usuarioController);
+                        } catch (IOException e) {
+                            System.out.println("Erro ao gerar arquivo CSV: " + e.getMessage());
+                        }
+                        break;
                 case 5:
                     removerUsuario();
                     break;
-                case 6:
-                    try {
-                        writeFile(usuarioController);
-                    } catch (IOException e) {
-
-                    }
-                break;
                 case 8:
                     System.out.println("Saindo do menu de usuários...");
                     return;
@@ -106,7 +106,7 @@ public class UsuarioView {
 
     public static void writeFile(UsuarioController usuarioController) throws IOException {
 
-        FileWriter file = new FileWriter("../ListaUsuários.csv");
+        FileWriter file = new FileWriter("../ListaUsuarios.csv");
 
         List<Usuario> usuarios = usuarioController.findAll();
         for (Usuario usuario : usuarios) {
@@ -117,9 +117,4 @@ public class UsuarioView {
 
         System.out.println("Arquivo CSV gerado com sucesso!");
     }
-
-    // public static void main(String[] args) {
-    //     UsuarioMenu menu = new UsuarioMenu();
-    //     menu.exibirMenu();
-    // }
 }
